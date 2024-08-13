@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LearnTag - Google Tag Manager</title>
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-M85NG973');
+  </script>
+    <!-- End Google Tag Manager -->
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M85NG973"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  <h1>Welcome to the GTM Learning Page</h1>
+  
+  <button onclick="trackEvent('Button 1')" style="background-color: red;">Button 1</button>
+  <button onclick="trackEvent('Button 2')" style="background-color: green;">Button 2</button>
+  <button onclick="trackEvent('Button 3')" style="background-color: blue;">Button 3</button>
+
+
+
+    <p>This is a simple HTML page to help you learn and experiment with Google Tag Manager.</p>
+
+    <button id="cta-button">Click Me</button>
+
+    <form id="contact-form">
+        <h2>Contact Us</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <button type="submit">Submit</button>
+    </form>
+
+    <p>Visit our <a href="file:///home/daniyar/projects/learntag/samplepage.html"  id="example-link">homepage</a>.</p>
+
+  
+  <script>
+    window.onload = (event) => {
+      console.log("index page is fully loaded");
+    };
+    // Simple JavaScript to demonstrate GTM event tracking
+    document.getElementById('cta-button').addEventListener('click', function() {
+            alert('Button Clicked!');
+            // You can track this event with GTM
+        });
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Form Submitted!');
+            // You can track form submission with GTM
+        });
+
+        document.getElementById('example-link').addEventListener('click', function() {
+            alert('Link Clicked!');
+            // You can track link clicks with GTM
+        });
+    function trackEvent(buttonName) {
+      // Replace 'YOUR_TAG_MANAGER_CONTAINER_ID' with your actual container ID
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('event', 'button_click', {
+      'event_category': 'Button Click',
+      'event_label': buttonName
+      });
+      console.log('Button clicked:', buttonName);
+    }
+  </script>
+</body>
+</html>
