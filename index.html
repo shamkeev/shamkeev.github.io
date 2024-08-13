@@ -119,7 +119,6 @@
         <p>Visit our <a href="samplepage.html" id="example-link">homepage</a>.</p>
     </div>
 
-    <script async data-id="101461827" src="//static.getclicky.com/js"></script>
 
     <script>
         window.onload = (event) => {
@@ -158,8 +157,7 @@
           fetch(apiUrl)
           .then(response => response.json())
           .then(data => {
-            const imageContainer   
-      = document.getElementById('image-container');
+            const imageContainer = document.getElementById('image-container');
             const img = document.createElement('img');
             img.src = data.urls.regular;
             img.style.width = '50%';
