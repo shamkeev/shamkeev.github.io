@@ -29,7 +29,7 @@
 
     <p>This is a simple HTML page to help you learn and experiment with Google Tag Manager.</p>
 
-    <button id="cta-button" onClick="trackEvent('Form Submit')">Click Me</button>
+    <button id="cta-button" onClick="trackEvent('Click Me')">Click Me</button>
 
     <form id="contact-form">
         <h2>Contact Us</h2>
@@ -37,7 +37,7 @@
         <input type="text" id="name" name="name">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email">
-        <button type="submit">Submit</button>
+        <button type="submit" onClick="trackEvent('Form Submit')">Submit</button>
     </form>
 
     <p>Visit our <a href="samplepage.html"  id="example-link">homepage</a>.</p>
