@@ -12,79 +12,8 @@
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-M85NG973');
     </script>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        .container {
-            text-align: center;
-        }
-
-        h1 {
-            margin-bottom: 20px;
-        }
-
-        button {
-            margin: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            color: white;
-        }
-
-        #cta-button {
-            background-color: orange;
-        }
-
-        form {
-            margin-top: 20px;
-            text-align: left;
-            display: inline-block;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        input[type="text"], input[type="email"] {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        form button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
-        }
-
-        a {
-            color: blue;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-        #image-container {
-            width: 20%;
-        }
-    </style>
     <!-- End Google Tag Manager -->
+     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -151,29 +80,35 @@
             }
         }
         function fetchImage() {
-          const apiKey = 'ge49rzIqHgZA_daNBS3tDviLh4_Wr7xbJcdMf-68aQk'; // Replace with your Unsplash access key
-          const apiUrl = 'https://api.unsplash.com/photos/random?client_id=ge49rzIqHgZA_daNBS3tDviLh4_Wr7xbJcdMf-68aQk';
+            const apiKey = 'ge49rzIqHgZA_daNBS3tDviLh4_Wr7xbJcdMf-68aQk'; // Replace with your Unsplash access key
+            const apiUrl = `https://api.unsplash.com/photos/random?client_id=${apiKey}`;
 
-          fetch(apiUrl)
-          .then(response => response.json())
-          .then(data => {
-            const imageContainer = document.getElementById('image-container');
-            const img = document.createElement('img');
-            img.src = data.urls.regular;
-            img.style.width = '50%';
+            fetch(apiUrl)
+                .then(response => {
+                    response.json()
+                    const limit = response.headers.get('X-Ratelimit-Limit');
+                    const remaining = response.headers.get('X-Ratelimit-Remaining');
+                    console.log(`Limit: ${limit}, Remaining: ${remaining}`);
+                })
+                .then(data => {
+                    const imageContainer = document.getElementById('image-container');
+                    const img = document.createElement('img');
+                    img.src = data.urls.regular;
+                    const limit = response.headers.get('X-Ratelimit-Limit');
 
-            // Replace existing image if any
-            if (imageContainer.firstChild) {
-              imageContainer.replaceChild(img, imageContainer.firstChild);
-            } else {
-              imageContainer.appendChild(img);
-            }
-          })
-          .catch(error => {
-            console.error('Error fetching image:', error);
-            const imageContainer = document.getElementById('image-container');
-            imageContainer.textContent = 'Error fetching image';
-          });
+
+                    // Replace existing image if any
+                    if (imageContainer.firstChild) {
+                        imageContainer.replaceChild(img, imageContainer.firstChild);
+                    } else {
+                        imageContainer.appendChild(img);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching image:', error);
+                    const imageContainer = document.getElementById('image-container');
+                    imageContainer.textContent = 'Error fetching image: ' + error.message;
+                });
         }
     </script>
 </body>
