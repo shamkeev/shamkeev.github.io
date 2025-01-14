@@ -12,7 +12,7 @@ Trust me, I'm an Engineer.
 
 ## Experience
 
-### Software Developer (finally a real one) at Safyre Labs
+### Software Developer (a real one) at Safyre Labs
 *October 2021 - Present*
 
 - Developed and maintained web applications using Ruby on Rails (because why not?)
@@ -22,7 +22,7 @@ Trust me, I'm an Engineer.
 - Wrote comprehensive tests to ensure code quality and reliability (tests that sometimes passed)
 - Participated in code reviews and provided constructive feedback (with a side of sarcasm)
 
-### A very important IT and MIS guy at International Non Profit Organization
+### A very important MIS guy at an International Non Profit Organization
 *January 2016 - September 2021*
 
 - Was responsible for a variety of stuff here (jack of all trades, master of none)
