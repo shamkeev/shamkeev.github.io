@@ -1,6 +1,6 @@
 # Resume
 
-Trust me, I'm an Engineer.
+I can code. Trust me, I'm an Engineer.
 
 ## Skills
 
